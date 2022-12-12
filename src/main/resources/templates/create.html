@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<h1>Создание нового пользователя</h1>>
+<table border="1">
+    <tbody>
+    <tr>
+        <form th:method="POST" th:action="@{/create}" th:object="${user}">
+            <td><label for="username">Enter your username</label>
+                <input type="text" th:field="*{username}" placeholder="Write your name" id="username"/></td>
+            <br>
+            <br>
+            <td><label for="email">Enter your email</label>
+                <input type="text" th:field="*{email}" placeholder="Write your surname" id="email"/></td>
+            <br>
+            <br>
+            <td><label for="password">Enter your password</label>
+                <input type="text" th:field="*{password}" placeholder="Write your surname" id="password"/></td>
+            <br>
+            <td>
+                <div class="col-8">
+                    <th:block th:each="role: ${listRoles}">
+                        <input type="checkbox" th:field="*{roles}"
+                               th:text="${role.name}" th:value="${role.id}" class="m-2"/>
+                    </th:block>
+                </div>
+            </td>
+            <input type="submit" value="Sign in"/>
+        </form>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

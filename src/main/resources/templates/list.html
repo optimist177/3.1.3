@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div class="containter">
+<table border="1">
+    <h1> Форма для просмотра и редактирования пользователей </h1>
+    <thead>
+    <tr>
+        <th> Имя </th>
+        <th> Почта </th>
+        <th>Права</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.username}"></td>>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.roles}"></td>>
+        <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+        <td><form th:method="delete" th:action="@{/{id}(id=${user.id})}"><input type="submit" value="Delete"></form></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<br>
+<hr>
+<a th:href="@{/logout}" >Разлогиниться</a>
+<a th:href="@{/create}" >Создать пользователя</a>
+</body>
+</html>

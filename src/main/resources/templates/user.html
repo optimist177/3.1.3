@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<h1>Создан новый пользователь</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th> UserID </th>
+        <th> Username </th>
+        <th> email </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> <p th:text="${user.id}">VALUE</p> </td>
+        <td> <p th:text="${user.username}">VALUE</p> </td>
+        <td> <p th:text="${user.email}">VALUE</p> </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<br>
+<td><a th:href="@{/users}" >Просмотреть список пользователей</a></td>
+<a th:href="@{/logout}" >Разлогиниться</a>
+<br>
+<hr>
+</body>
+</html>
